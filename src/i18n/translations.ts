@@ -1,0 +1,405 @@
+export type Locale = 'en' | 'ar';
+
+export const TRANSLATIONS = {
+  en: {
+    // Brand & Header
+    brandName: 'Emirates Group',
+    brandSubtitle: 'HR Data Intelligence & Trust Engine',
+    navOverview: 'Overview',
+    navTriage: 'Triage Queue',
+    navSecurityGhosts: 'Security Ghosts',
+    navDuplicates: 'Duplicate Studio',
+    navLineage: 'Blast Radius',
+    navSteward: 'Steward Review',
+    navQuery: 'Leadership AI',
+    navDictionary: 'Data Dictionary',
+    exportAudit: 'Export Audit Trail',
+    refreshSync: 'Refresh Sync',
+    languageToggle: 'العربية',
+
+    // Overview Banner & KPIs
+    tagline: 'Deterministic Multi-Schema Resolution Engine',
+    overviewTitle: 'Emirates Group HR Data Intelligence & Trust Engine',
+    overviewDesc:
+      'Continuously reconciles records across 50+ disparate enterprise systems—including Core HR, Payroll, Azure Active Directory, and Safety LMS—using a deterministic Source Trust Hierarchy, downstream blast radius lineage, and strict Human-in-the-Loop steward governance.',
+    reviewQueueBtn: 'Review Triage Queue',
+    askAiBtn: 'Ask Leadership AI',
+    entitiesAnalyzed: 'Entities Analyzed',
+    entitiesAnalyzedSub: 'Across 4 core systems',
+    activeDisparities: 'Active Disparities',
+    securityGhostsKpi: 'Security Ghosts',
+    securityGhostsSub: 'Airside / Payroll leak',
+    netFinancialExposure: 'Net Financial Exposure',
+    netFinancialExposureSub: 'Grade & salary variances',
+    regulatoryRisks: 'Regulatory Risks',
+    regulatoryRisksSub: 'Tawteen & GPSSA',
+    stewardDecisions: 'Steward Decisions',
+    stewardDecisionsSub: 'Human-in-the-loop',
+
+    // Taxonomy Breakdown
+    taxonomyTitle: 'Disparity Taxonomy Breakdown',
+    taxonomySubtitle: 'Strict 5-class categorization defined by enterprise governance',
+    viewAll: 'View All',
+    issuesCount: 'issues',
+
+    // Categories
+    catSecurityGhost: 'Security Ghosts',
+    catSecurityGhostDesc: 'Terminated in Core HR but retain active IT directory or airside airport access credentials.',
+    catCrossMismatch: 'Cross-System Mismatch',
+    catCrossMismatchDesc: 'Conflicting values across systems (e.g. Grade level, Tawteen nationality status, safety certification).',
+    catDuplicate: 'Duplicate Active Records',
+    catDuplicateDesc: 'Multiple active system records mapped to the same unified GEID within one source file.',
+    catInvalidCode: 'Invalid Enumerated Codes',
+    catInvalidCodeDesc: 'Values missing from the authoritative enumerated master list in data_dictionary.md.',
+    catTemporalParadox: 'Temporal Paradoxes',
+    catTemporalParadoxDesc: 'Chronological sequence violations (e.g. Termination Date preceding official Hire Date).',
+
+    // Formula Card
+    formulaTitle: 'Dynamic Business Impact Prioritization Formula',
+    formulaSubtitle: 'Standardized weighted model to calculate Business Impact Score (0 - 100)',
+    formulaSeverity: 'Severity (1 - 5)',
+    formulaSeverityDesc: 'Ghost=5, Mismatch=3',
+    formulaFinancial: 'Financial (0 - 10)',
+    formulaFinancialDesc: 'High for payroll leaks',
+    formulaRegulatory: 'Regulatory (0 - 10)',
+    formulaRegulatoryDesc: 'Emiratisation & Pension',
+    formulaFanout: 'Fanout (1 - N)',
+    formulaFanoutDesc: 'Direct systems + reports',
+
+    // Trust Hierarchy
+    trustTitle: 'Source Trust Hierarchy & Conflict Rules',
+    trustSubtitle: 'Deterministic domain authority hierarchy for automated conflict resolution',
+    primaryAuthorityFor: 'Primary authority for:',
+    weight: 'Weight:',
+    tieBreakerRuleTitle: 'Tie-Breaker Rule: ',
+    tieBreakerRuleDesc:
+      'If two source systems possess equal domain weight for a field, the engine deterministically prioritizes the candidate value with the most recent last_modified_timestamp.',
+
+    // Governance Guardrails
+    guardrailsTitle: 'Responsible AI Governance Guardrails',
+    guardrail1Title: 'Human-in-the-Loop Only:',
+    guardrail1Desc: 'Suggested fixes never write back to live systems without explicit sign-off by an authorized HR Data Steward.',
+    guardrail2Title: 'Deterministic Evidence:',
+    guardrail2Desc: 'Every recommendation discloses primary vs secondary sources, exact file names, record IDs, and confidence score.',
+    guardrail3Title: 'Audit Log Invariant:',
+    guardrail3Desc: 'Every decision emits a structured JSON payload persisted to audit_log.json.',
+
+    // Triage Queue
+    filterSearchPlaceholder: 'Filter by GEID, name, issue ID or keyword...',
+    showingCount: 'Showing',
+    ofCount: 'of',
+    disparitiesCount: 'disparities',
+    filterCategory: 'Issue Category',
+    filterPriority: 'Priority Level',
+    filterDepartment: 'Department',
+    filterStatus: 'Steward Status',
+    colScoreRank: 'Score / Rank',
+    colIssueCategory: 'Issue & Category',
+    colEmployeeGeid: 'Employee / GEID',
+    colDepartment: 'Department',
+    colDiscrepancyFix: 'Deterministic Discrepancy & Fix',
+    colStatus: 'Status',
+    colActions: 'Governance Actions',
+    proposedFix: 'Proposed fix:',
+    via: 'via',
+    fanout: 'Fanout:',
+    reviewBtn: 'Review',
+    allCategories: 'All Categories',
+    allPriorities: 'All Priorities',
+    allDivisions: 'All Divisions',
+    allStatuses: 'All Statuses',
+    noDisparitiesFound: 'No record disparities match your selected filters.',
+    clearFilters: 'Clear all filters',
+
+    // Priorities
+    prioCritical: 'Critical',
+    prioHigh: 'High',
+    prioMedium: 'Medium',
+    prioLow: 'Low',
+
+    // Statuses
+    statPending: 'Pending Review',
+    statApproved: 'Approved',
+    statRejected: 'Rejected',
+    statOverridden: 'Overridden',
+
+    // Security Ghost Console
+    ghostConsoleTitle: 'Security Ghost Threat Monitor & Access Deprovisioning',
+    ghostConsoleSub:
+      'Cross-references employee lifecycle termination records in core_hr.csv against active physical credentials in access_directory.csv and live wage disbursement in payroll.csv. Prioritizes Severity 5 threats to prevent airside airport breaches and unearned payroll leaks.',
+    airsideGhostsTitle: 'Airside Access Ghosts',
+    airsideGhostsDesc: 'Active Cockpit, Ramp, or Cargo biometric passes retained by separated personnel.',
+    payrollGhostsTitle: 'Payroll Disbursement Ghosts',
+    payrollGhostsDesc: 'Active bank WPS routing transferring unauthorized salary to terminated staff.',
+    dualGhostsTitle: 'Dual IT + Payroll Ghosts',
+    dualGhostsDesc: 'Simultaneous breach: active airfield biometric badges and ongoing banking transfers.',
+    criticalGhostsCount: 'Critical Ghosts',
+    annualWageLeak: 'Annual Wage Leak',
+    riskAssessmentTitle: 'Security & Operational Risk Assessment:',
+    conflictingStatusTitle: 'Cross-Referenced Status Discrepancies:',
+    targetFixTitle: 'Target Fix (Aligned to core_hr Rank 1 Authority):',
+    stewardSignOffReq: 'Requires HR Data Steward Sign-Off',
+
+    // Duplicate Studio
+    duplicateStudioTitle: 'Duplicate Records Detection & Consolidation Studio',
+    duplicateStudioSub:
+      'Scans individual source files (core_hr.csv, payroll.csv, access_directory.csv) for multiple records associated with the same Global Entity ID (GEID). Determines the surviving authoritative profile via Source Trust Hierarchy and timestamp tie-breakers.',
+    detectedDuplicatesCount: 'Detected Duplicates',
+    tieBreakerNotice: 'Tie-breaker Invariant: Most recent last_modified_timestamp',
+    candidateRecordsTitle: 'Candidate Records in Source File',
+    survivingMasterBadge: 'SURVIVING MASTER (WINNER)',
+    actionMergeArchive: 'Action: Merge & Decommission',
+    tieBreakerMostRecent: 'Tie-Breaker: Most Recent',
+    recConsolidationTitle: 'Recommended Consolidation Strategy:',
+    targetAction: 'Target Action:',
+    approveConsolidationBtn: 'Approve Consolidation',
+
+    // Blast Radius View
+    lineageTitle: 'Downstream Blast Radius & Executive Report Lineage',
+    lineageSub: 'Calculates downstream system cascade and metric deltas derived from dependencies.md before steward commits',
+    selectedEntityLabel: 'Selected Entity:',
+    conflictOriginTitle: '1. Conflict Origin',
+    deterministicFixTitle: '2. Deterministic Fix',
+    affectedSystemsTitle: '3. Affected Systems',
+    executiveReportsTitle: '4. Executive Reports & Delimitation',
+    metricDeltaPreviewTitle: 'Computed Metric Delta Preview',
+    financialExposureMitigation: 'Financial Exposure Mitigation:',
+    topDownstreamExposures: 'Top Downstream Blast Radius Exposures',
+
+    // Steward Modal
+    stewardModalTitle: 'HR Data Steward Decision & Audit Sign-Off',
+    evidenceComparisonTitle: 'Deterministic Evidence & Source Trust Hierarchy',
+    engineRecommendationTitle: 'Engine Recommendation',
+    stewardDecisionChoice: 'Steward Action Decision',
+    approveFixAction: 'Approve Fix',
+    rejectFixAction: 'Reject Fix',
+    customOverrideAction: 'Custom Override',
+    customOverridePlaceholder: 'Enter custom resolved value...',
+    stewardIdLabel: 'Steward ID:',
+    stewardNameLabel: 'Steward Name:',
+    stewardNotesLabel: 'Audit Justification & Steward Notes:',
+    signOffButton: 'Sign-Off & Log Decision',
+    immutableCommitNotice: 'Commits immutable log to audit_log.json',
+
+    // Leadership AI
+    leadershipAiTitle: 'Plain-Language Leadership Inquiries & Trust Transparency',
+    leadershipAiSub: 'Grounded strictly in the 50+ multi-system reconciliation datasets, Source Trust Hierarchy, and GCAA/Tawteen compliance mandates',
+    queryPlaceholder: 'Ask a plain-language executive question (e.g. Which terminated pilots still retain active airport security clearance?)...',
+    suggestedQueriesTitle: 'Suggested Leadership Inquiries:',
+    groundedSynthesisTitle: 'Grounded Advisory Synthesis',
+    queryGroundingNotice: '100% Deterministic Evidence Grounding',
+    allFixesRequireSteward: 'All proposed fixes require Human-in-the-Loop Steward Approval',
+
+    // Sample Leadership Queries
+    sampleQ1: 'Which terminated employees still have active airport flight deck or ramp access?',
+    sampleQ2: 'What is our total annualized financial exposure from unaligned grade levels?',
+    sampleQ3: 'Show all discrepancies impacting UAE National Tawteen and GPSSA pension reporting.',
+    sampleQ4: 'Identify active duplicate records and temporal paradoxes in Emirates Engineering.',
+
+    // Footer
+    footerCompliance: 'Strict Schema 1 Compliant',
+    footerSources: 'core_hr · payroll · access_directory · learning',
+    footerGovernance: 'Human-in-the-Loop Governance',
+  },
+
+  ar: {
+    // Brand & Header
+    brandName: 'مجموعة طيران الإمارات',
+    brandSubtitle: 'محرك ذكاء وثقة بيانات الموارد البشرية',
+    navOverview: 'نظرة عامة',
+    navTriage: 'قائمة الفرز والمعالجة',
+    navSecurityGhosts: 'أشباح الأمان',
+    navDuplicates: 'استوديو التكرارات',
+    navLineage: 'نطاق التأثير والتبعية',
+    navSteward: 'إشراف البيانات',
+    navQuery: 'ذكاء القيادة التنفيذية',
+    navDictionary: 'قاموس البيانات',
+    exportAudit: 'تصدير سجل التدقيق',
+    refreshSync: 'تحديث المزامنة',
+    languageToggle: 'English',
+
+    // Overview Banner & KPIs
+    tagline: 'محرك التسوية الحتمي عبر المخططات المتعددة',
+    overviewTitle: 'محرك ذكاء وثقة بيانات الموارد البشرية - مجموعة الإمارات',
+    overviewDesc:
+      'يقوم النظام آلياً بتسوية ومطابقة السجلات عبر أكثر من 50 نظاماً مؤسسياً للموارد البشرية (بما يشمل الأنظمة الأساسية، الرواتب، الدليل النشط لتقنية المعلومات، ونظم إدارة تدريب السلامة الجوية)، بالاستناد إلى التسلسل الهرمي لمصداقية المصادر وحساب نطاق التأثير، مع إلزامية الحوكمة البشرية لمشرفي البيانات.',
+    reviewQueueBtn: 'مراجعة قائمة الفرز',
+    askAiBtn: 'استشارة الذكاء القيادي',
+    entitiesAnalyzed: 'الهويات المحللة (GEID)',
+    entitiesAnalyzedSub: 'عبر 4 أنظمة رئيسية',
+    activeDisparities: 'التناقضات النشطة',
+    securityGhostsKpi: 'أشباح الأمان',
+    securityGhostsSub: 'تسريب أمني / مالي',
+    netFinancialExposure: 'التعرض المالي الصافي',
+    netFinancialExposureSub: 'فروقات الدرجات والرواتب',
+    regulatoryRisks: 'المخاطر التنظيمية',
+    regulatoryRisksSub: 'التوطين وهيئة المعاشات',
+    stewardDecisions: 'قرارات مشرفي البيانات',
+    stewardDecisionsSub: 'حوكمة العنصر البشري',
+
+    // Taxonomy Breakdown
+    taxonomyTitle: 'تصنيف التناقضات والخلل البياني',
+    taxonomySubtitle: 'تصنيف صارم من 5 فئات معتمد وفقاً لمعايير الحوكمة المؤسسية',
+    viewAll: 'عرض الكل',
+    issuesCount: 'حالات',
+
+    // Categories
+    catSecurityGhost: 'حسابات أشباح الأمان',
+    catSecurityGhostDesc: 'موظفون مفصولون في الموارد البشرية الأساسية ولكن يحتفظون بصلاحيات نشطة في الدليل أو بوابات المطار.',
+    catCrossMismatch: 'تناقض البيانات بين الأنظمة',
+    catCrossMismatchDesc: 'قيم متضاربة للحقل نفسه عبر الأنظمة (مثل الدرجة الوظيفية، صفة التوطين، أو صلاحية شهادات السلامة).',
+    catDuplicate: 'سجلات موظفين مكررة',
+    catDuplicateDesc: 'تكرار عدة سجلات نشطة لنفس المعرف الموحد (GEID) داخل نفس ملف المصدر.',
+    catInvalidCode: 'أكواد وقيم غير معتمدة',
+    catInvalidCodeDesc: 'قيم غير مدرجة في القوائم المعتمدة المحددة في قاموس البيانات (data_dictionary.md).',
+    catTemporalParadox: 'تناقض التسلسل الزمني',
+    catTemporalParadoxDesc: 'انتهاك التسلسل التاريخي للخدمة (مثل تسجيل تاريخ إنهاء الخدمة قبل تاريخ التعيين).',
+
+    // Formula Card
+    formulaTitle: 'معادلة حساب نقاط الأثر على الأعمال (Business Impact Score)',
+    formulaSubtitle: 'نموذج وزني قياسي لحساب درجة الأثر الإجمالية (من 0 إلى 100)',
+    formulaSeverity: 'درجة الخطورة (1 - 5)',
+    formulaSeverityDesc: 'الأشباح=5، التناقض=3',
+    formulaFinancial: 'التعرض المالي (0 - 10)',
+    formulaFinancialDesc: 'مرتفع لتسريبات الرواتب',
+    formulaRegulatory: 'الأهمية التنظيمية (0 - 10)',
+    formulaRegulatoryDesc: 'التوطين وهيئة المعاشات',
+    formulaFanout: 'التشعب للأنظمة (1 - N)',
+    formulaFanoutDesc: 'الأنظمة والتقارير المتأثرة',
+
+    // Trust Hierarchy
+    trustTitle: 'التسلسل الهرمي لمصداقية المصادر وقواعد فض النزاع',
+    trustSubtitle: 'تسلسل سلطة مجالات البيانات لحل التناقضات بصورة حتمية وموثقة',
+    primaryAuthorityFor: 'المصدر المرجعي المعتمد لـ:',
+    weight: 'الوزن:',
+    tieBreakerRuleTitle: 'قاعدة فض النزاع المتكافئ: ',
+    tieBreakerRuleDesc:
+      'إذا تساوى نظامان في الوزن المرجعي لمجال بياني، يعتمد المحرك حتمياً القيمة المسجلة في السجل الأحدث بناءً على الطابع الزمني (last_modified_timestamp).',
+
+    // Governance Guardrails
+    guardrailsTitle: 'ضوابط حوكمة الذكاء الاصطناعي المسؤول',
+    guardrail1Title: 'إلزامية الحوكمة البشرية:',
+    guardrail1Desc: 'لا يتم إرسال أو تطبيق أي تعديل على الأنظمة الحية دون موافقة صريحة من مشرف معتمد لبيانات الموارد البشرية.',
+    guardrail2Title: 'الأدلة الحتمية والشفافية:',
+    guardrail2Desc: 'كل توصية تكشف المصادر الأساسية والثانوية، أرقام السجلات المعنية، ونسبة الثقة المحسوبة بدقة.',
+    guardrail3Title: 'سجل التدقيق غير القابل للتعديل:',
+    guardrail3Desc: 'يتم تدوين كل قرار إشرافي في ملف سجل التدقيق audit_log.json بصيغة JSON مهيكلة.',
+
+    // Triage Queue
+    filterSearchPlaceholder: 'البحث برقم المعرف GEID، الاسم، رقم الحالة أو كلمة مفتاحية...',
+    showingCount: 'عرض',
+    ofCount: 'من أصل',
+    disparitiesCount: 'تناقضات مسجلة',
+    filterCategory: 'فئة التناقض',
+    filterPriority: 'مستوى الأولوية',
+    filterDepartment: 'القطاع / الإدارة',
+    filterStatus: 'حالة إشراف البيانات',
+    colScoreRank: 'الدرجة / الأولوية',
+    colIssueCategory: 'رقم الحالة والتصنيف',
+    colEmployeeGeid: 'الموظف / المعرف GEID',
+    colDepartment: 'القطاع الوظيفي',
+    colDiscrepancyFix: 'التناقض المرصود والمعالجة المقترحة',
+    colStatus: 'حالة الإشراف',
+    colActions: 'إجراءات الحوكمة',
+    proposedFix: 'المعالجة المقترحة:',
+    via: 'وفقاً لـ',
+    fanout: 'التشعب:',
+    reviewBtn: 'مراجعة',
+    allCategories: 'جميع الفئات',
+    allPriorities: 'جميع المستويات',
+    allDivisions: 'جميع القطاعات',
+    allStatuses: 'جميع الحالات',
+    noDisparitiesFound: 'لا توجد تناقضات مطابقة لشروط الفلترة المحددة.',
+    clearFilters: 'إعادة ضبط الفلاتر',
+
+    // Priorities
+    prioCritical: 'حرج للغاية',
+    prioHigh: 'مرتفع',
+    prioMedium: 'متوسط',
+    prioLow: 'منخفض',
+
+    // Statuses
+    statPending: 'بانتظار المراجعة',
+    statApproved: 'معتمد',
+    statRejected: 'مرفوض',
+    statOverridden: 'معدل يدوياً',
+
+    // Security Ghost Console
+    ghostConsoleTitle: 'شاشة رصد أشباح الأمان وإلغاء الصلاحيات المعلقة',
+    ghostConsoleSub:
+      'تقوم هذه الخوارزمية بمطابقة سجلات إنهاء الخدمة في core_hr.csv مع الصلاحيات الفعلية في access_directory.csv والتحويلات المالية في payroll.csv، مع إعطاء الأولوية القصوى (خطورة = 5) لمنع اختراق ساحة المطار ووقف هدر الرواتب غير المستحقة.',
+    airsideGhostsTitle: 'أشباح تصاريح ساحة الطيران',
+    airsideGhostsDesc: 'تصاريح بيومترية نشطة لقمرة القيادة أو ساحة الطيران أو مستودعات الشحن لموظفين مفصولين.',
+    payrollGhostsTitle: 'أشباح صرف الرواتب الوهمية',
+    payrollGhostsDesc: 'تحويلات مالية مستمرة عبر نظام حماية الأجور (WPS) لموظفين منتهية خدماتهم.',
+    dualGhostsTitle: 'أشباح مزدوجة (أمنية + مالية)',
+    dualGhostsDesc: 'حالات حرجة تجمع بين صلاحيات بيومترية نشطة في المطار واستمرار تحويل الرواتب.',
+    criticalGhostsCount: 'حالات الأشباح الحرجة',
+    annualWageLeak: 'الهدر المالي السنوي',
+    riskAssessmentTitle: 'تقييم المخاطر الأمنية والتشغيلية:',
+    conflictingStatusTitle: 'التناقضات المسجلة بين المصادر:',
+    targetFixTitle: 'المعالجة المعتمدة (متوافقة مع المرجع الأساسي core_hr):',
+    stewardSignOffReq: 'تتطلب توقيع مشرف بيانات الموارد البشرية',
+
+    // Duplicate Studio
+    duplicateStudioTitle: 'استوديو رصد وتوحيد سجلات الموظفين المكررة',
+    duplicateStudioSub:
+      'فحص ملفات المصادر كلٍ على حدة (core_hr.csv، payroll.csv، access_directory.csv) لرصد السجلات المتعددة لنفس المعرف GEID، واختيار السجل الرئيسي المعتمد استناداً إلى هرمية المصادر والطابع الزمني الأحدث.',
+    detectedDuplicatesCount: 'حالات التكرار المرصودة',
+    tieBreakerNotice: 'قاعدة فض التكافؤ: الاعتماد الحتمي للطابع الزمني الأحدث (last_modified_timestamp)',
+    candidateRecordsTitle: 'السجلات المتنافسة في ملف المصدر',
+    survivingMasterBadge: 'السجل الرئيسي المعتمد (الفائز)',
+    actionMergeArchive: 'الإجراء: دمج وأرشفة السجل الزائد',
+    tieBreakerMostRecent: 'معيار الفوز: التحديث الأحدث',
+    recConsolidationTitle: 'خطة التوحيد والدمج الموصى بها:',
+    targetAction: 'الإجراء المعتمد:',
+    approveConsolidationBtn: 'اعتماد الدمج والتوحيد',
+
+    // Blast Radius View
+    lineageTitle: 'نطاق التأثير التنفيذي وشجرة تبعيات الأنظمة',
+    lineageSub: 'تحليل دقيق للأنظمة المباشرة والتقارير التنظيمية المتأثرة بالتعديل قبل اعتماده رسمياً',
+    selectedEntityLabel: 'السجل المحدد:',
+    conflictOriginTitle: '1. مصدر التناقض',
+    deterministicFixTitle: '2. الحل المرجعي الحتمي',
+    affectedSystemsTitle: '3. الأنظمة المتأثرة',
+    executiveReportsTitle: '4. التقارير التنفيذية والتنظيمية',
+    metricDeltaPreviewTitle: 'معاينة الأثر الرقمي المتوقع (Delta Preview)',
+    financialExposureMitigation: 'الأثر المالي المتدارك:',
+    topDownstreamExposures: 'أعلى السجلات تأثيراً على الأنظمة والتقارير التابعة',
+
+    // Steward Modal
+    stewardModalTitle: 'قرار مشرف بيانات الموارد البشرية والتوثيق الرقابي',
+    evidenceComparisonTitle: 'الأدلة الحتمية والتسلسل الهرمي لمصداقية المصادر',
+    engineRecommendationTitle: 'توصية المحرك الحتمية',
+    stewardDecisionChoice: 'قرار الإشراف المعتمد',
+    approveFixAction: 'اعتماد التوصية',
+    rejectFixAction: 'رفض المعالجة',
+    customOverrideAction: 'تعديل استثنائي مخصص',
+    customOverridePlaceholder: 'أدخل القيمة المخصصة المعتمدة...',
+    stewardIdLabel: 'معرف المشرف (Steward ID):',
+    stewardNameLabel: 'اسم المشرف المسؤول:',
+    stewardNotesLabel: 'مبررات القرار وملاحظات التدقيق:',
+    signOffButton: 'توقيع وتوثيق القرار رسمياً',
+    immutableCommitNotice: 'يتم تسجيل وتثبيت القرار في سجل التدقيق audit_log.json',
+
+    // Leadership AI
+    leadershipAiTitle: 'منظومة الاستفسارات القيادية التنفيذية والشفافية التوثيقية',
+    leadershipAiSub: 'إجابات قيادية مدعومة ومطابقة بدقة لبيانات المطابقة وقواعد حوكمة الطيران المدني والتوطين',
+    queryPlaceholder: 'اطرح سؤالاً باللغة العربية أو الإنجليزية (مثال: ما هي الحسابات المفصولة التي لا تزال تملك تصاريح دخول إلى قمرة القيادة أو ساحة الطيران بمطار دبي؟)...',
+    suggestedQueriesTitle: 'استفسارات تنفيذية مقترحة:',
+    groundedSynthesisTitle: 'الخلاصة الاستشارية الموثقة بالأدلة',
+    queryGroundingNotice: 'استناد قطعي للأدلة وسجلات المصادر بنسبة 100%',
+    allFixesRequireSteward: 'جميع التوصيات تخضع لإلزامية موافقة مشرفي البيانات المعتمدين',
+
+    // Sample Leadership Queries
+    sampleQ1: 'ما هي حسابات الموظفين المفصولين الذين ما زالوا يمتلكون تصاريح دخول إلى ساحة المطار أو قمرة القيادة؟',
+    sampleQ2: 'ما هو إجمالي التعرض المالي السنوي الناتج عن تضارب الدرجات الوظيفية بين الموارد البشرية والرواتب؟',
+    sampleQ3: 'اعرض كافة التناقضات التي تؤثر على ملفات التوطين الحكومية واشتراكات هيئة المعاشات (GPSSA).',
+    sampleQ4: 'حدد السجلات المكررة النشطة والتناقضات الزمنية في قطاع هندسة طيران الإمارات.',
+
+    // Footer
+    footerCompliance: 'مطابق للمخطط القياسي Schema 1',
+    footerSources: 'الموارد البشرية الأساسية · الرواتب · الدليل الأمني · سجلات التدريب',
+    footerGovernance: 'حوكمة العنصر البشري المعتمدة',
+  },
+};

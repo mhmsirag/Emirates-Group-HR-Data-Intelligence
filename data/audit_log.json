@@ -1,0 +1,15 @@
+[
+  {
+    "timestamp": "2026-10-14T09:30:00Z",
+    "issue_id": "ISSUE-2026-000",
+    "geid": "GEID-00912",
+    "employee_name": "Hamdan Al-Nuaimi",
+    "action": "APPROVED",
+    "steward_id": "STEWARD-DXB-04",
+    "steward_name": "Mariam Al-Hashemi",
+    "steward_notes": "Revoked physical airside ramp badge following standard separation clearance.",
+    "target_field": "active_directory_status",
+    "resolved_value": "Disabled",
+    "source_rationale": "core_hr.csv termination authority verified."
+  }
+]

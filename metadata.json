@@ -1,0 +1,6 @@
+{
+  "name": "Emirates Group HR Data Intelligence & Trust Engine",
+  "description": "Autonomous HR entity resolution, deterministic source trust hierarchy reconciliation, downstream blast radius lineage analysis, and human-in-the-loop stewardship for Emirates Group.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
