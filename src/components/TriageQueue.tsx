@@ -18,6 +18,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 interface TriageQueueProps {
   issues: DisparityIssue[];
   initialCategory?: string;
+  initialPriority?: string;
   onSelectIssueForLineage: (issue: DisparityIssue) => void;
   onSelectIssueForSteward: (issue: DisparityIssue) => void;
   onViewSchemaJson: (issue: DisparityIssue) => void;
@@ -26,6 +27,7 @@ interface TriageQueueProps {
 export const TriageQueue: React.FC<TriageQueueProps> = ({
   issues,
   initialCategory,
+  initialPriority,
   onSelectIssueForLineage,
   onSelectIssueForSteward,
   onViewSchemaJson,
@@ -33,9 +35,17 @@ export const TriageQueue: React.FC<TriageQueueProps> = ({
   const { t, locale, isRtl } = useLanguage();
   const [search, setSearch] = useState('');
   const [categoryFilter, setCategoryFilter] = useState<string>(initialCategory || 'ALL');
-  const [priorityFilter, setPriorityFilter] = useState<string>('ALL');
+  const [priorityFilter, setPriorityFilter] = useState<string>(initialPriority || 'ALL');
   const [statusFilter, setStatusFilter] = useState<string>('ALL');
   const [selectedDepartment, setSelectedDepartment] = useState<string>('ALL');
+
+  React.useEffect(() => {
+    if (initialCategory) setCategoryFilter(initialCategory);
+  }, [initialCategory]);
+
+  React.useEffect(() => {
+    if (initialPriority) setPriorityFilter(initialPriority);
+  }, [initialPriority]);
 
   // Extract unique departments
   const departments = useMemo(() => {

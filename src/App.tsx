@@ -15,6 +15,7 @@ import { StewardReviewModal } from './components/StewardReviewModal';
 import { LeadershipQuery } from './components/LeadershipQuery';
 import { DataDictionaryView } from './components/DataDictionaryView';
 import { SchemaJsonModal } from './components/SchemaJsonModal';
+import { AnalyticsView } from './components/AnalyticsView';
 import {
   SAMPLE_CORE_HR,
   SAMPLE_PAYROLL,
@@ -30,6 +31,7 @@ function AppContent() {
   const [issues, setIssues] = useState<DisparityIssue[]>([]);
   const [activeTab, setActiveTab] = useState<string>('overview');
   const [triageCategoryFilter, setTriageCategoryFilter] = useState<string>('ALL');
+  const [triagePriorityFilter, setTriagePriorityFilter] = useState<string>('ALL');
   const [selectedLineageIssue, setSelectedLineageIssue] = useState<DisparityIssue | null>(null);
   const [selectedStewardIssue, setSelectedStewardIssue] = useState<DisparityIssue | null>(null);
   const [selectedSchemaIssue, setSelectedSchemaIssue] = useState<DisparityIssue | null>(null);
@@ -179,9 +181,12 @@ function AppContent() {
     URL.revokeObjectURL(url);
   };
 
-  const handleNavigate = (tab: string, categoryFilter?: string) => {
+  const handleNavigate = (tab: string, categoryFilter?: string, priorityFilter?: string) => {
     if (categoryFilter) {
       setTriageCategoryFilter(categoryFilter);
+    }
+    if (priorityFilter) {
+      setTriagePriorityFilter(priorityFilter);
     }
     setActiveTab(tab);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -212,10 +217,27 @@ function AppContent() {
           />
         )}
 
+        {activeTab === 'analytics' && (
+          <AnalyticsView
+            issues={issues}
+            totalGeidsCount={SAMPLE_CORE_HR.length}
+            auditCount={auditLogs.length}
+            onNavigateToTriage={(category, priority) =>
+              handleNavigate('triage', category, priority)
+            }
+            onSelectIssueForLineage={(iss) => {
+              setSelectedLineageIssue(iss);
+              setActiveTab('lineage');
+            }}
+            onSelectIssueForSteward={(iss) => setSelectedStewardIssue(iss)}
+          />
+        )}
+
         {activeTab === 'triage' && (
           <TriageQueue
             issues={issues}
             initialCategory={triageCategoryFilter}
+            initialPriority={triagePriorityFilter}
             onSelectIssueForLineage={(iss) => {
               setSelectedLineageIssue(iss);
               setActiveTab('lineage');

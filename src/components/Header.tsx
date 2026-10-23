@@ -9,6 +9,7 @@ import {
   Download,
   RefreshCw,
   Languages,
+  BarChart3,
 } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 
@@ -33,6 +34,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   const navItems = [
     { id: 'overview', label: t.navOverview, icon: Layers },
+    { id: 'analytics', label: t.navAnalytics, icon: BarChart3 },
     { id: 'triage', label: t.navTriage, count: pendingCount, icon: ShieldAlert },
     { id: 'security_ghosts', label: t.navSecurityGhosts, icon: ShieldAlert },
     { id: 'duplicates', label: t.navDuplicates, icon: GitFork },

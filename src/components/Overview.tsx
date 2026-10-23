@@ -8,6 +8,7 @@ import {
   Database,
   ArrowRight,
   TrendingUp,
+  BarChart3,
 } from 'lucide-react';
 import { DisparityIssue } from '../types';
 import { SOURCE_TRUST_HIERARCHY } from '../data/data_dictionary';
@@ -85,6 +86,13 @@ export const Overview: React.FC<OverviewProps> = ({
               <ArrowRight className={`w-3.5 h-3.5 ${isRtl ? 'rotate-180' : ''}`} />
             </button>
             <button
+              onClick={() => onNavigate('analytics')}
+              className="px-4 py-2 text-xs font-semibold text-slate-200 hover:text-white bg-slate-900 hover:bg-slate-800 rounded-md border border-slate-700 transition-colors flex items-center gap-2 whitespace-nowrap"
+            >
+              <BarChart3 className="w-3.5 h-3.5 text-red-400" />
+              <span>{t.navAnalytics}</span>
+            </button>
+            <button
               onClick={() => onNavigate('query')}
               className="px-4 py-2 text-xs font-medium text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 rounded-md border border-slate-700 transition-colors flex items-center gap-2 whitespace-nowrap"
             >
@@ -146,6 +154,130 @@ export const Overview: React.FC<OverviewProps> = ({
             {approvedIssues.length + auditCount}
           </div>
           <div className="text-[11px] text-slate-400 mt-1">{t.stewardDecisionsSub}</div>
+        </div>
+      </div>
+
+      {/* Visual Analytics & Graphs Snapshot Banner */}
+      <div className="bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900 rounded-xl p-5 border border-slate-800 space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-lg bg-red-950/80 border border-red-800/60 flex items-center justify-center text-red-400">
+              <BarChart3 className="w-4 h-4" />
+            </div>
+            <div>
+              <h2 className="text-sm font-bold text-white">
+                {locale === 'ar' ? 'نبض التحليلات البيانية والمؤشرات التنبؤية' : 'HR Telemetry & Analytical Pulse'}
+              </h2>
+              <p className="text-xs text-slate-400">
+                {locale === 'ar'
+                  ? 'توزيع درجات الأثر التنبؤية ومؤشرات التسرب المالي عبر قطاعات مجموعة الإمارات'
+                  : 'Predictive Business Impact Spectrum (0-100) & Financial Exposure Multipliers'}
+              </p>
+            </div>
+          </div>
+
+          <button
+            onClick={() => onNavigate('analytics')}
+            className="text-xs font-semibold text-red-400 hover:text-red-300 flex items-center gap-1.5 self-start sm:self-auto font-mono"
+          >
+            <span>{locale === 'ar' ? 'فتح لوحة التحليلات والرسوم الكاملة' : 'Explore Full Analytics & Graphs'}</span>
+            <ArrowRight className={`w-3.5 h-3.5 ${isRtl ? 'rotate-180' : ''}`} />
+          </button>
+        </div>
+
+        {/* 4 Mini Analytics Bars */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          <div
+            onClick={() => onNavigate('analytics')}
+            className="p-3 rounded-lg bg-slate-950/80 border border-slate-800/80 hover:border-red-900/60 cursor-pointer transition-all space-y-1.5 group"
+          >
+            <div className="flex items-center justify-between text-xs text-slate-400">
+              <span className="group-hover:text-white transition-colors">{locale === 'ar' ? 'النطاق الحرج (76-100)' : 'Critical (76-100)'}</span>
+              <span className="font-mono text-red-400 font-bold">
+                {issues.filter((i) => i.impact_score > 75).length}
+              </span>
+            </div>
+            <div className="h-1.5 w-full bg-slate-900 rounded-full overflow-hidden">
+              <div
+                style={{
+                  width: `${Math.round(
+                    (issues.filter((i) => i.impact_score > 75).length / (issues.length || 1)) * 100
+                  )}%`,
+                }}
+                className="h-full bg-red-500 rounded-full"
+              />
+            </div>
+          </div>
+
+          <div
+            onClick={() => onNavigate('analytics')}
+            className="p-3 rounded-lg bg-slate-950/80 border border-slate-800/80 hover:border-amber-900/60 cursor-pointer transition-all space-y-1.5 group"
+          >
+            <div className="flex items-center justify-between text-xs text-slate-400">
+              <span className="group-hover:text-white transition-colors">{locale === 'ar' ? 'النطاق المرتفع (51-75)' : 'High (51-75)'}</span>
+              <span className="font-mono text-amber-400 font-bold">
+                {issues.filter((i) => i.impact_score >= 51 && i.impact_score <= 75).length}
+              </span>
+            </div>
+            <div className="h-1.5 w-full bg-slate-900 rounded-full overflow-hidden">
+              <div
+                style={{
+                  width: `${Math.round(
+                    (issues.filter((i) => i.impact_score >= 51 && i.impact_score <= 75).length /
+                      (issues.length || 1)) *
+                      100
+                  )}%`,
+                }}
+                className="h-full bg-amber-500 rounded-full"
+              />
+            </div>
+          </div>
+
+          <div
+            onClick={() => onNavigate('analytics')}
+            className="p-3 rounded-lg bg-slate-950/80 border border-slate-800/80 hover:border-yellow-900/60 cursor-pointer transition-all space-y-1.5 group"
+          >
+            <div className="flex items-center justify-between text-xs text-slate-400">
+              <span className="group-hover:text-white transition-colors">{locale === 'ar' ? 'النطاق المتوسط (26-50)' : 'Medium (26-50)'}</span>
+              <span className="font-mono text-yellow-400 font-bold">
+                {issues.filter((i) => i.impact_score >= 26 && i.impact_score <= 50).length}
+              </span>
+            </div>
+            <div className="h-1.5 w-full bg-slate-900 rounded-full overflow-hidden">
+              <div
+                style={{
+                  width: `${Math.round(
+                    (issues.filter((i) => i.impact_score >= 26 && i.impact_score <= 50).length /
+                      (issues.length || 1)) *
+                      100
+                  )}%`,
+                }}
+                className="h-full bg-yellow-500 rounded-full"
+              />
+            </div>
+          </div>
+
+          <div
+            onClick={() => onNavigate('analytics')}
+            className="p-3 rounded-lg bg-slate-950/80 border border-slate-800/80 hover:border-emerald-900/60 cursor-pointer transition-all space-y-1.5 group"
+          >
+            <div className="flex items-center justify-between text-xs text-slate-400">
+              <span className="group-hover:text-white transition-colors">{locale === 'ar' ? 'النطاق المنخفض (0-25)' : 'Low (0-25)'}</span>
+              <span className="font-mono text-emerald-400 font-bold">
+                {issues.filter((i) => i.impact_score <= 25).length}
+              </span>
+            </div>
+            <div className="h-1.5 w-full bg-slate-900 rounded-full overflow-hidden">
+              <div
+                style={{
+                  width: `${Math.round(
+                    (issues.filter((i) => i.impact_score <= 25).length / (issues.length || 1)) * 100
+                  )}%`,
+                }}
+                className="h-full bg-emerald-500 rounded-full"
+              />
+            </div>
+          </div>
         </div>
       </div>
 
