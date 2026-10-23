@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { DisparityIssue } from '../types';
 import { useLanguage } from '../i18n/LanguageContext';
+import { synthesizeLeadershipAdvisory } from '../services/leadershipAdvisory';
 
 interface LeadershipQueryProps {
   issues: DisparityIssue[];
@@ -57,19 +58,15 @@ export const LeadershipQuery: React.FC<LeadershipQueryProps> = ({
         setResponse(data.answer);
         setSourceModel(data.source || 'gemini-3.8-flash');
       } else {
-        setResponse(
-          locale === 'ar'
-            ? 'تعذر إنشاء الإجابة في الوقت الحالي. يرجى إعادة المحاولة.'
-            : 'Unable to synthesize response. Please retry.'
-        );
+        const fallback = synthesizeLeadershipAdvisory(questionText, issues, locale);
+        setResponse(fallback);
+        setSourceModel('deterministic-rules-engine');
       }
     } catch (err) {
-      console.error('Error fetching query response:', err);
-      setResponse(
-        locale === 'ar'
-          ? 'تعذر الاتصال بمحرك الذكاء الاصطناعي مؤقتاً. السجلات المحلية الحتمية متاحة في قائمة الفرز والمعالجة.'
-          : 'Engine service temporarily unreachable. Deterministic local records remain available in Triage Queue.'
-      );
+      console.log('Backend API unreachable, using client deterministic engine:', err);
+      const fallback = synthesizeLeadershipAdvisory(questionText, issues, locale);
+      setResponse(fallback);
+      setSourceModel('deterministic-rules-engine');
     } finally {
       setIsLoading(false);
     }
